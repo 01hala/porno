@@ -1,0 +1,8 @@
+import common
+
+module gate_hotspot {
+    
+    query_prompt req(string[] prompt, uint32 current_img_page) 
+        rsp(uint32 current_img_page, user_img[] img_list) err(error err);
+}
+

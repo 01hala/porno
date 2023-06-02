@@ -1,0 +1,1 @@
+dotnet ./bin/control.dll ./config/config_node.txt gm qianqians close

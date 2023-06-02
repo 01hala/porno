@@ -1,0 +1,105 @@
+enum error {
+	system_error = -3;
+	timeout = -2;
+	db_error = -1;
+	success = 0;
+	no_exist_user = 1;
+	wrong_password = 2;
+	no_enough_coin = 3; // 金币不足
+	money_number_mismatch = 4; // 支付现金数额不匹配
+	img_is_expired = 5; // 图片已过期
+	account_repeat = 6;
+	mail_repeat = 7;
+}
+
+enum coin_type {
+	coin = 1;
+	money = 2;
+}
+
+enum gen_image_state {
+	in_queue = 1;
+	in_generating = 2;
+	done_generate = 3;
+}
+
+enum save_image_state {
+	save_public = 1;
+	save_private = 2;
+	give_up = 3;
+}
+
+struct order {
+	string order_uuid;
+	string account;
+	string[] prompt;
+}
+
+struct user_order_info
+{
+    string order_uuid;
+	string user_name;
+    gen_image_state state;
+    int64 expire_time;
+    string[] prompt;
+	string url;
+	int64 img_guid; 
+	string file;
+	string gen_svr;
+}
+
+struct user_payment_info {
+	string order_uuid;
+	gen_image_state state;
+	int32 completeness;
+	string url;
+}
+
+struct user_data
+{
+	string account;
+	string name;
+	int32 coin;
+	int32 level;
+}
+
+struct order_essay_block {
+    string order_uuid;
+    string essay;
+}
+
+struct essay_block {
+	int64 img_guid; 
+	string img_url; 
+	string essay;
+}
+
+struct user_img_db 
+{
+	string account;
+	uint64 create_time;
+	int64 essay_guid; 
+	essay_block[] free_essay; 
+	essay_block[] pay_essay; 
+	save_image_state save_state;
+	string[] prompt;
+	uint32 hotspot;
+	uint32 discuss_count;
+}
+
+struct hotspot_prompt_db
+{
+	string prompt;
+	uint32 count;
+}
+
+struct user_img {
+	string creator;
+	string creator_name;
+	uint64 create_time;
+	int64 essay_guid; 
+	essay_block[] essay;
+	string[] prompt;
+	uint32 hotspot;
+	uint32 discuss_count;
+}

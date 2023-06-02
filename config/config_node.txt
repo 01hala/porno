@@ -1,0 +1,80 @@
+{
+    "center":{
+		"name":"center_porno",
+        "gm_ip":"127.0.0.1",
+        "gm_port":1002,
+		"log_level":"trace",
+		"log_file":"center.txt",
+		"log_dir":"./log/"
+    },
+
+    "dbproxy":{
+		"name":"dbproxy",
+		"db_url":"mongodb://127.0.0.1:27017",
+		"log_level":"trace",
+		"log_file":"dbproxy.txt",
+		"log_dir":"./log/",
+		"index":[{"db":"porno", "collection":"guest_guid", "key":"Guid", "is_unique":true},
+				 {"db":"porno", "collection":"image_guid", "key":"Guid", "is_unique":true},
+				 {"db":"porno", "collection":"user", "key":"account", "is_unique":true},
+				 {"db":"porno", "collection":"user", "key":"mail", "is_unique":false},
+				 {"db":"porno", "collection":"check_account", "key":"account", "is_unique":true},
+				 {"db":"porno", "collection":"check_account", "key":"token", "is_unique":true},
+				 {"db":"porno", "collection":"check_mail", "key":"mail", "is_unique":true},
+				 {"db":"porno", "collection":"check_mail", "key":"token", "is_unique":true},
+	             {"db":"porno", "collection":"offline_msg", "key":"account", "is_unique":false}],
+		"guid":[{"db":"porno", "collection":"guest_guid", "inside_guid":10013, "public_guid":10013},
+				{"db":"porno", "collection":"image_guid", "inside_guid":13312, "public_guid":13312},]
+    },
+	
+    "gm":{
+		"gm_ip":"127.0.0.1",
+        "gm_port":1002,
+		"log_level":"trace",
+		"log_file":"control.txt",
+		"log_dir":"./log/"
+    },
+
+	"http_gate":{
+		"name":"http_gate",
+		"http_listen":true,
+		"http_outside_host":"0.0.0.0",
+		"http_outside_port":8001,
+		"log_level":"trace",
+		"log_file":"http_gate0.txt",
+		"log_dir":"./log/"
+	},
+
+    "data":{
+		"name":"data",
+		"log_level":"trace",
+		"log_file":"data0.txt",
+		"log_dir":"./log/"
+    },
+	
+	"generate":{
+		"name":"generate",
+		"log_level":"trace",
+		"log_file":"generate0.txt",
+		"log_dir":"./log/"
+    },
+	
+	"hotspot":{
+		"name":"hotspot",
+		"log_level":"trace",
+		"log_file":"hotspot0.txt",
+		"log_dir":"./log/"
+    },
+	
+	"personal":{
+		"name":"personal",
+		"log_level":"trace",
+		"log_file":"personal0.txt",
+		"log_dir":"./log/"
+    },
+
+	"redismq_listen": true,
+	"redismq_is_cluster": false,
+	"redis_for_mq": "127.0.0.1:6379",
+	"redis_for_cache": "127.0.0.1:6379"
+}

@@ -1,0 +1,26 @@
+import common
+
+struct user_data_rsp 
+{
+	error code;
+	user_data data;
+	string token;
+}
+
+struct user_payment_rsp {
+	error code;
+	user_payment_info[] payment_info_list;
+}
+
+struct user_query_img_rsp {
+	error code;
+	uint32 current_img_page;
+	int64 current_img_guid;
+	user_img[] img_list;
+}
+
+struct user_save_rsp {
+	error err_code;
+	user_payment_info[] payment_info_list;
+	user_img img_essay;
+}

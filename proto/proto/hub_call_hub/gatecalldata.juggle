@@ -1,0 +1,22 @@
+import common
+
+struct payment {
+    string token;
+    coin_type type;
+    int32 number;
+}
+
+module gate_data {
+    
+    guest_login req(string account) rsp(user_data data, string token) err(error err);
+    
+    user_login req(string account, string password) rsp(user_data data, string token) err(error err);
+    
+    user_create req(string token, string account, string password, string mail, string name) 
+        rsp(user_data data, string token) err(error err);
+
+    payment_verify req(payment _info) rsp() err(error err);
+
+    get_user_follow req(string token) rsp(string[] follow_list) err(error err);
+}
+

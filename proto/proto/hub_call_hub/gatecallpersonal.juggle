@@ -1,0 +1,8 @@
+import common
+
+module gate_personal {
+    
+    query_personal req(bool is_self, string creator, int64 last_img_guid) 
+        rsp(int64 current_img_guid, user_img[] img_list) err(error err);
+}
+

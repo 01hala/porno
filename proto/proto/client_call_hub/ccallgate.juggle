@@ -1,0 +1,64 @@
+import common
+
+struct guest_req {
+    string account; //游客第一次登录为空,在cookie中保存
+}
+
+struct user_login_req {
+    string account; 
+    string password;
+}
+
+struct user_create_req {
+    string token;
+    string account; 
+    string password;
+    string mail;
+    string name;
+}
+
+struct free_order_req {
+	string token;
+    string name;
+    string[] prompt;
+}
+
+struct payment_order_req {
+	string token;
+    string name;
+    string[] prompt;
+    coin_type type;
+}
+
+struct user_payment_req {
+	string token;
+    string order_uuid;
+    coin_type type;
+}
+
+struct user_query_req {
+	string token;
+}
+
+struct user_save_req {
+    string token;
+    order_essay_block[] free_essay;
+    order_essay_block[] pay_essay;
+    save_image_state save_state;
+}
+
+struct user_query_prompt_req {
+    string[] prompt;
+    uint32 current_img_page;
+}
+
+struct user_query_personal_req {
+    string token;
+    string personal;
+    int64 last_img_guid;
+}
+
+struct user_query_home_req {
+    string token;
+    int64 last_img_guid;
+}

@@ -1,0 +1,6 @@
+import common
+
+module gate_gen {
+    save_img req(string account, string order_uuid, save_image_state save_state) rsp(string img_url) err(error err);
+}
+
